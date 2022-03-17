@@ -4,15 +4,28 @@
 
 
 
-<div class="text-center" ng-controller="indexController" ng-init="init()">
+<div class="text-center" ng-controller="indexController" ng-init="init()" style="width:500px; margin:100px auto;">
     <form role="form" name="cardForm" ng-submit="SubmitForm()" novalidate>
-  <div class="form-group">
-    <label for="email">Credit card number:</label>
-    <input type="text" class="form-control" name="cardNo" ng-model="cardNo" ng-keyup="$event.keyCode == 13 ? SubmitForm() : null">
+  <div class="form-group" style="width:300px; margin:0 auto">
+    <label for="email" style="margin:0 0 10px 0; text-transform:uppercase; font-size:12px; font-weight:bold;">Credit card number</label>
+    <input type="text" ng-change="clearMessages()" class="form-control" name="cardNo" ng-model="cardNo" ng-keyup="$event.keyCode == 13 ? SubmitForm() : null">
   </div>
  
-  <button type="submit" class="btn btn-default">Submit</button>
+  <div style="margin:10px 0 0 0"><button type="submit" class="btn btn-primary" style="width:300px;">Submit</button></div>
 </form>
+<div style="margin:50px 0 0 0">
+    <div ng-hide="result==null">
+       <span class="alert alert-success"> {{result.type}} : {{cardNo}}  
+           <any ng-switch="result.status">
+                <any ng-switch-when="true">(valid)</any>
+                <any ng-switch-when="false">(invalid)</any>
+            </any>
+         </span>                          
+    </div>
+    <div ng-hide="errors==null" ng-repeat="error in errors"  class="alert alert-danger">
+         <span>  {{error}} </span>                           
+    </div>
+</div>
 </div>
 
 

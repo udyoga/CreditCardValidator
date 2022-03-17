@@ -12,7 +12,7 @@ namespace CreditCardValidator.Logics.Implementation
             var cardType = CheckCardType(cardRequet.CardNumber, out numberArray);
             bool isValid = false;
 
-            if (cardType != CardType.NotValid)
+            if (cardType != CardType.Unknown)
             {
                 isValid = ValidateCardNumber(numberArray);
             }
@@ -21,7 +21,7 @@ namespace CreditCardValidator.Logics.Implementation
 
         private CardType CheckCardType(string cardNumber, out List<int> numberArray)
         {
-            CardType cardType = CardType.NotValid;
+            CardType cardType = CardType.Unknown;
 
             //--- Convert string number to digit list
             numberArray = cardNumber.ToArray().Select(a => int.Parse(a.ToString())).ToList();
@@ -57,7 +57,7 @@ namespace CreditCardValidator.Logics.Implementation
                         }
                         break;
                     default:
-                        cardType = CardType.NotValid;
+                        cardType = CardType.Unknown;
                         break;
                 }
             }

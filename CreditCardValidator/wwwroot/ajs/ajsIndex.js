@@ -3,17 +3,27 @@
 cardApp.controller("indexController", function ($scope, $location, $http) {
 
     var $API_URL = '';
+    $scope.result = null;
+    $scope.errors = null;
 
     $scope.init = function () {
-        $API_URL = `${$location.protocol()}://` + `${$location.host()}:` + `${$location.port()}/api/`;
-        $scope.SaveIncident();
+        $API_URL = `${$location.protocol()}://` + `${$location.host()}:` + `${$location.port()}/api/`;        
     };
 
     $scope.SubmitForm = function () {
-        return $http.post($API_URL + "CardValidateAPI/CheckCard", { "CardNumber": $scope.cardNo}).then(function (response) {
-            return response;
-        }, function errorCallback(response) {
-            return response.data.ExceptionMessage;
+        $scope.result = null;
+        $scope.errors = null;
+        return $http.post($API_URL + "CardValidateAPI/CheckCard", { "CardNumber": $scope.cardNo }).then(function (response) {
+            $scope.result = response.data;
+            console.log('S', response.data)
+        }, function errorCallback(error) {
+            $scope.errors = error.data.errors.CardNumber;
+            console.log('E', error.data.errors.CardNumber)           
         });
+    };
+
+    $scope.clearMessages = function () {
+        $scope.result = null;
+        $scope.errors = null;
     };
 });

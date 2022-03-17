@@ -19,8 +19,7 @@ namespace CreditCardValidator.Controllers
         }
 
         public IActionResult Index()
-        {
-            string aa = optionsMonitor.CurrentValue.EncryptionKey;
+        {           
             return View();
         }
 

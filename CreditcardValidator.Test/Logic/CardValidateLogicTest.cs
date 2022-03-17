@@ -57,7 +57,7 @@ namespace CreditcardValidator.Test.Logic
             Assert.True(input6.CardType == CardType.MasterCard);
 
             Assert.False(input7.Status);
-            Assert.True(input7.CardType == CardType.NotValid);
+            Assert.True(input7.CardType == CardType.Unknown);
         }
     }
 }

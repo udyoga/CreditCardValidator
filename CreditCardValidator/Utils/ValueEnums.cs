@@ -4,5 +4,5 @@
     Discover,
     MasterCard,
     Visa,
-    NotValid
+    Unknown
 }

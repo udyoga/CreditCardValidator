@@ -2,6 +2,6 @@
 {
     public class Configs
     {
-        public string EncryptionKey { get; set; }
+        public string value { get; set; }
     }
 }
