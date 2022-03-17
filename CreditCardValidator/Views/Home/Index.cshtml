@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<div class="text-center" ng-controller="indexController" ng-init="init()">
+    <form role="form" name="cardForm" ng-submit="SubmitForm()" novalidate>
+  <div class="form-group">
+    <label for="email">Credit card number:</label>
+    <input type="text" class="form-control" name="cardNo" ng-model="cardNo" ng-keyup="$event.keyCode == 13 ? SubmitForm() : null">
+  </div>
+ 
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
+
+
