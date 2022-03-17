@@ -8,7 +8,7 @@
     <form role="form" name="cardForm" ng-submit="SubmitForm()" novalidate>
   <div class="form-group" style="width:300px; margin:0 auto">
     <label for="email" style="margin:0 0 10px 0; text-transform:uppercase; font-size:12px; font-weight:bold;">Credit card number</label>
-    <input type="text" ng-change="clearMessages()" class="form-control" name="cardNo" ng-model="cardNo" ng-keyup="$event.keyCode == 13 ? SubmitForm() : null">
+    <input type="text" ng-change="clearMessages()" class="form-control" name="cardNo" ng-model="cardNo">
   </div>
  
   <div style="margin:10px 0 0 0"><button type="submit" class="btn btn-primary" style="width:300px;">Submit</button></div>

@@ -14,11 +14,9 @@ cardApp.controller("indexController", function ($scope, $location, $http) {
         $scope.result = null;
         $scope.errors = null;
         return $http.post($API_URL + "CardValidateAPI/CheckCard", { "CardNumber": $scope.cardNo }).then(function (response) {
-            $scope.result = response.data;
-            console.log('S', response.data)
+            $scope.result = response.data;           
         }, function errorCallback(error) {
-            $scope.errors = error.data.errors.CardNumber;
-            console.log('E', error.data.errors.CardNumber)           
+            $scope.errors = error.data.errors.CardNumber;            
         });
     };
 
